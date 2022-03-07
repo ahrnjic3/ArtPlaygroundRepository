@@ -1,0 +1,9 @@
+{
+	"Colors": {
+		"Favourite": "Blue"
+		;
+	},
+	"ConnectionStrings": {
+		"ArtPlaygroundContextDb":  ""
+	}
+}

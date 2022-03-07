@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="row">
+    <div class="col-md-6">
+        <div class="product-info">
+            <img class="product-image" src="~/img/van gogh.jpg" />
+            <h3>Shirt</h3>
+            <ul class="product-properties">
+                <li> Price : 99 USD</li>
+                <li>Artist: Van Gogh</li>
+                <li>Description: Famous painting replica</li>
+            </ul>
+            <button id="buyButton" class="btn btn-success">Buy</button>
+        </div>
+
+
+        <div id="theForm">
+            <form>
+                <label>Username: </label>
+                <br />
+                <input />
+                <br />
+                <label>Password: </label>
+                <br />
+                <input type="password" />
+                <br />
+                <label>Email: </label>
+                <br />
+                <input type="email" />
+                <br />
+                <label>Subject: </label>
+                <br />
+                <input type="text" />
+                <br />
+                <label>Message: </label>
+                <br />
+                <textarea rows="4"></textarea>
+                <br />
+                <input type="submit" value="Send Message" />
+            </form>
+        </div>
+        <div>
+            <div id="loginToggle">Login</div>
+            <form class="popup-form">
+                <div>
+                    <label>Username: </label>
+                    <input />
+                </div>
+                <div>
+                    <label>Password:</label>
+                    <input type="password" />
+                </div>
+                <div>
+                    <input type="checkbox" />
+                    <label>Remember Me?</label>
+                </div>
+                <div>
+                    <input type="submit" />
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div class="col-md-6">
+        <p> Here's some text'</p>
+    </div>
+</div>
+    
+
