@@ -1,4 +1,5 @@
-﻿using FirstProjectEmptyApp.Services;
+﻿using FirstProjectEmptyApp.Data;
+using FirstProjectEmptyApp.Services;
 using FirstProjectEmptyApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,10 +13,13 @@ namespace FirstProjectEmptyApp.Controllers
     public class AppController : Controller
     {
         private readonly IMailService _mailService;
+        private readonly IArtPlaygroundRepository _repository;
 
-        public AppController(IMailService mailService)
+        public AppController(IMailService mailService, IArtPlaygroundRepository repository)
         {
             _mailService = mailService;
+            _repository = repository;
+      
         }
         public IActionResult Index()
         {
@@ -23,7 +27,6 @@ namespace FirstProjectEmptyApp.Controllers
         }
         [HttpGet("contact")]
         public IActionResult Contact() {
-            //throw new InvalidOperationException("Bad stuff");
             return View();
         }
         [HttpPost("contact")]
@@ -46,6 +49,11 @@ namespace FirstProjectEmptyApp.Controllers
         {
             ViewBag.Title = "About Us";
             return View();
+        }
+        public IActionResult Shop() {
+            var result = _repository.GetAllPRoducts();
+
+            return View( result);
         }
     }
 }

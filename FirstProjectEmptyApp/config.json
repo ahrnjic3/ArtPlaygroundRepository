@@ -1,9 +1,8 @@
 {
 	"Colors": {
 		"Favourite": "Blue"
-		;
 	},
 	"ConnectionStrings": {
-		"ArtPlaygroundContextDb":  ""
+		"ArtPlaygroundContextDb": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ArtPlaygroundDb;Integrated Security=True;Connect Timeout=30;Multiple Active Result Sets=true;"
 	}
 }

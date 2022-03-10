@@ -17,9 +17,11 @@ namespace FirstProjectEmptyApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ArtPlaygroundContext>(cfg => {
-               // cfg.UseSqlServer();
+              //  cfg.UseSqlServer(_config.GetConnectionString("DutchConnectionString"));
             });
+            services.AddTransient<ArtPlaygroundSeeder>();
             services.AddTransient<Services.IMailService, Services.NullMailService>();
+            services.AddScoped<IArtPlaygroundRepository, ArtPlaygroundRepository>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
         }
