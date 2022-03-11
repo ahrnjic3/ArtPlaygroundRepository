@@ -1,4 +1,5 @@
 ﻿using FirstProjectEmptyApp.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +26,22 @@ namespace FirstProjectEmptyApp.Data
 
             return _ctx.Products.Where(p => p.Category == Category).ToList();
         }
+
+        public IEnumerable<Order> GetAllOrders() {
+            return _ctx.Orders.Include(o=> o.Items).ThenInclude(o => o.Product).OrderBy(o => o.Id).ToList();
+        }
         public bool SaveAll() {
             return _ctx.SaveChanges() > 0;
+        }
+
+        public Order GetOrderById(int id)
+        {
+            return _ctx.Orders.Include(o=> o.Items).ThenInclude(o=> o.Product).Where(o => o.Id == id).ToList().FirstOrDefault();
+        }
+
+        public void AddEntity(object model)
+        {
+            _ctx.Add(model);
         }
     }
 }

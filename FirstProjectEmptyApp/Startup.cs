@@ -22,7 +22,7 @@ namespace FirstProjectEmptyApp
             services.AddTransient<ArtPlaygroundSeeder>();
             services.AddTransient<Services.IMailService, Services.NullMailService>();
             services.AddScoped<IArtPlaygroundRepository, ArtPlaygroundRepository>();
-            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation().AddNewtonsoftJson(cfg => cfg.SerializerSettings.ReferenceLoopHandling= Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddRazorPages();
         }
 
